@@ -1,0 +1,23 @@
+package com.capgemini.springcore1;
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import com.capgemini.spring.config.AppConfig;
+import com.capgemini.springbean.Hello;
+import com.capgemini.springbean.Pet;
+
+public class TestAnnotationBased {
+
+	public static void main(String[] args) {
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);		
+		/*
+		 * Hello h = context.getBean(Hello.class); h.print(); Hello h1 =
+		 * context.getBean(Hello.class); System.out.println(h==h1);
+		 */
+
+		Pet pet = context.getBean(Pet.class);
+		pet.dosomething();
+		context.close();
+	}
+
+}

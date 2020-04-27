@@ -1,0 +1,45 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<% List<EmployeePrimaryInfo> info =(List<EmployeePrimaryInfo>)request.getAttribute("bean");%>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>List Emloyee</title>
+</head>
+<body>
+<% if (info!=null) { %>
+	<div align="center">
+	<table border="1" style="width :70%">
+	<tbody>
+	<tr style="background:navy; color: white;">
+	<th>id</th>
+	<th>name</th>
+	<th>email</th>
+	<th>mobileno</th>
+	<th>salary</th>
+	<th>deptno</th>
+	<th>bloodgrp</th>
+	<th>age</th>
+	<th>DateofBirth</th>
+	</tr>
+
+	<% for(EmployeePrimaryInfo employeeInfoBean : info) { %>
+<tr>
+<td><%=employeeInfoBean.getId() %></td>
+	<td><%=employeeInfoBean.getName() %></td>
+	<td><%=employeeInfoBean.getEmail() %></td>
+	<td><%=employeeInfoBean.getMobileno() %></td>
+	<td><%=employeeInfoBean.getSalary() %></td>
+	<td><%=employeeInfoBean.getDeptno() %></td>
+	<td><%=employeeInfoBean.getBloodgrp() %></td>
+	<td><%=employeeInfoBean.getAge() %></td>
+	<td><%=employeeInfoBean.getDateofBirth() %></td>
+	</tr>
+	<% } %>
+	</tbody>
+</table>
+</div>
+<% } %>
+</body>
+</html>

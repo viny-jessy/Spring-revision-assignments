@@ -1,0 +1,9 @@
+package com.capgemini.springbean;
+
+public interface Animal {
+
+	public void sound();
+
+	
+
+}

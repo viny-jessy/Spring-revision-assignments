@@ -1,0 +1,12 @@
+package com.capgemini.springcore;
+
+import java.applet.AppletContext;
+
+public class MessageTest {
+	public static void main(String[] args) {
+		
+		AppletContext context = new ClassPathXmlApplicationContext("beans.xml");
+		
+	}
+
+}

@@ -1,0 +1,12 @@
+package com.capgemini.springcore;
+
+import org.springframework.context.ApplicationContext;
+
+public class MessageTest {
+	public static void main(String[] args) {
+		
+		
+		
+	}
+
+}

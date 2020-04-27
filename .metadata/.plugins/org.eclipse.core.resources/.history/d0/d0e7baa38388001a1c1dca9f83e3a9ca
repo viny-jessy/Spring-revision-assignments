@@ -1,0 +1,24 @@
+package com.capgemini.springbean;
+
+public class Car {
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	private int id;
+	private String name;
+	
+	public Car() {
+		System.out.println("Default constructor of car");
+		
+		}
+	public void display() {
+		System.out.println("Welcome to car showroom" + id + "" + name);
+	}
+	
+	
+
+}

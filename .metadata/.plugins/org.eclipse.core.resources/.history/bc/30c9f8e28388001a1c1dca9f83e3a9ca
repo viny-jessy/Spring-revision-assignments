@@ -1,0 +1,20 @@
+package com.capgemini.springcore1;
+
+import com.capgemini.springbean.EmployeeAddressInfo;
+import com.capgemini.springbean.EmployeePrimaryInfo;
+
+public class App 
+{
+    public static void main( String[] args ) {
+    	EmployeeAddressInfo address = new EmployeeAddressInfo();
+    	EmployeePrimaryInfo info=new EmployeePrimaryInfo();
+    	info.setId(11);
+    	info.setName("priya");
+    	info.setAdress(address);
+    	address.setAddresstype("current");
+    	address.setCity("hyderabad");
+    	address.setAid(12);
+    	
+  
+    }
+}

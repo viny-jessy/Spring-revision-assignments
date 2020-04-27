@@ -1,0 +1,66 @@
+package com.capgemini.spring.config;
+
+import java.util.ArrayList;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Scope;
+
+import com.capgemini.springbean.Animal;
+import com.capgemini.springbean.Car;
+import com.capgemini.springbean.Cat;
+import com.capgemini.springbean.Hello;
+import com.capgemini.springbean.Lion;
+import com.capgemini.springbean.Pet;
+
+@Configuration
+public class AppConfig {
+	@Bean
+	public Car getCar() {
+		Car car = new Car();
+		car.setId(1);
+		car.setName("Audi");
+		return car;
+		
+	}
+	@Bean
+	@Scope("prototype")
+	public Hello getHello() {
+		Hello hello = new Hello();
+		hello.setId(11);
+		ArrayList<String> al=new ArrayList<String>();
+		al.add("Anu");
+		al.add("jessy");
+		al.add("meena");
+		hello.setName(al);
+		return hello;
+		
+	}
+	@Bean
+	public Pet getPet() {
+		Pet pet = new Pet();
+		/*
+		 * Animal animal = new Cat(); pet.setAnimal(animal);
+		 */
+			pet.setName("cat");
+			return pet;
+		}
+	
+	@Bean
+	@Primary
+	public Lion getLion() {
+		Lion lion = new Lion();
+		return lion;
+	}
+	
+	@Bean
+	public Cat getCat() {
+		Cat cat = new Cat();
+		return cat;
+	}
+		
+		
+	}
+
+

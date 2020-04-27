@@ -1,0 +1,25 @@
+package com.capgemini.springcore;
+
+
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import com.capgemini.springcore.bean.MessageBean;
+
+public class MessageTest {
+	public static void main(String[] args) {
+		
+		
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+		
+		MessageBean messageBean = context.getBean("MessageBean");
+		System.out.println("Message1  = " +messageBean.getMessage());
+		
+		//MessageBean messageBean2 = (MessageBean) context.getBean("msg2");
+	
+		System.out.println("Message1  = " +messageBean.getMessage());
+		//System.out.println("Message2  = " +messageBean2.getMessage());
+		
+		context.close();
+		
+	}// End of main()
+
+}//End of class

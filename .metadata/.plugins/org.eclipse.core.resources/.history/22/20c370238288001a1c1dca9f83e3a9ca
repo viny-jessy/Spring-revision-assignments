@@ -1,0 +1,23 @@
+package com.capgemini.springbean;
+
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Test1 {
+	public static void main(String[] args) {
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("animal.xml");
+
+		/*
+		 * Animal animal=context.getBean(Lion.class); animal.sound();
+		 */
+
+		/*
+		 * Animal animal = context.getBean(Animal.class); animal.sound();
+		 * context.close();
+		 */
+		Pet pet = context.getBean(Pet.class);
+		pet.dosomething();
+		context.close();
+	}
+
+
+}

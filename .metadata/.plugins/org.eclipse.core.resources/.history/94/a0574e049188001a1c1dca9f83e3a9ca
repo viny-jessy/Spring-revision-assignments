@@ -1,0 +1,111 @@
+package com.capgemini.springmvc.controller;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.capgemini.springmvc.bean.EmployeePrimaryInfo;
+import com.capgemini.springmvc.service.EmployeeService;
+
+@Controller
+public class EmployeeController {
+	@Autowired
+	EmployeeService service;
+	@InitBinder
+	public void initBinder(WebDataBinder binder) {
+		CustomDateEditor dateEditor=new CustomDateEditor(new SimpleDateFormat("yyyy-mm-dd"),true);
+	    binder.registerCustomEditor(Date.class,dateEditor);
+	}
+	
+	@GetMapping("/add")
+	public String getForm() {
+		return "add-employee";
+	}
+	
+//	@PostMapping("/added")
+//	public String submitForm(EmployeePrimaryInfo info,ModelMap map) {
+//		
+//		boolean added=service.createEmployeeInfo(info);
+//		
+//		return "add-employee";
+//	}
+	
+	@PostMapping("/added") 
+		public String submitForm(EmployeePrimaryInfo info,ModelMap map) {
+			boolean added=service.createEmployeeInfo(info);
+			if(added) {
+				return "hello";
+			} else {
+				return "add-employee";
+			}
+		}
+	
+	@GetMapping("/search")
+	public String getsearchForm() {
+		return "searchEmp";
+	}
+	
+	@GetMapping("/searchEmployee")
+	public String getDetail(int id,ModelMap map) {
+		EmployeePrimaryInfo bean=service.getEmployeeDetails(id);
+		if(bean!=null) {
+			map.addAttribute("bean",bean);
+			return "searched";
+		} else {
+		return "searchEmp";
+		}
+	}
+	@GetMapping("/delete")
+	public String getDeleteForm() {
+		return "deleteEmp";
+	}
+	
+	@GetMapping("/deleteEmployee")
+	public String deleted(int id,ModelMap map) {
+		boolean delete=service.deleteEmployeeInfo(id);
+		if (delete) {
+			map.addAttribute("hello","Record Deleted");
+			return "hello";
+		} else {
+		return "deleteEmp";
+		}
+	}
+		
+//		@GetMapping("/getAll")
+//		public String getAll() {
+//			return "AllDetailOfEmployee";
+//		}
+//		
+//		@GetMapping("/getAllEmployee")
+//		public String getAllEmployee(ModelMap map) {
+//			List<EmployeePrimaryInfo> info=service.getAllEMployeeInfo();
+//			map.addAttribute("list",info);
+//			return "getAllEmployee";
+//		}
+		
+		@GetMapping("/update")
+		public String updateForm() {
+			return "updateEmp";
+		}
+
+		@GetMapping("/updateEmployee")
+		public String update(EmployeePrimaryInfo info,ModelMap map) {
+			boolean update=service.updateEmployeeInfo(info);
+			if (update) {
+				map.addAttribute("hello","Record updated");
+				return "hello";
+			} else {
+			return "updateEmp";
+			}
+		}
+	
+	}

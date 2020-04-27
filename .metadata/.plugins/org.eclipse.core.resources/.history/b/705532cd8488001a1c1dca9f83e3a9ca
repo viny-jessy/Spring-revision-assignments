@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd 
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    
+	<bean id="hello" class="com.capgemini.springbean.Hello"></bean>
+
+	<bean id="address" class="com.capgemini.springbean.EmployeeAddressInfo">
+	<property name="aid" value="101"></property>
+	<property name = "Addresstype" value="current"></property>
+	<property name="city" value="chennai"></property>
+	
+		<!-- <constructor-arg name="aid" value="101"></constructor-arg>
+		<constructor-arg name="Addresstype" value="current"></constructor-arg>
+		<constructor-arg name="city" value="chennai"></constructor-arg>
+         -->
+	</bean>
+
+	<bean id="primary" class="com.capgemini.springbean.EmployeePrimaryInfo">
+	<property name="id" value="2"></property>
+	<property name="name" value="viny"></property>
+	<property name="adress" ref="address"></property>
+	
+		<!--  <constructor-arg name="id" value="2"></constructor-arg>
+		<constructor-arg name="name" value="vinitha1"></constructor-arg>
+		<constructor-arg name="address" ref="address"></constructor-arg>
+         -->
+	</bean>
+
+
+
+</beans>

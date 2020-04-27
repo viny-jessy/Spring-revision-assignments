@@ -1,0 +1,45 @@
+package com.capgemini.springbean;
+
+public class EmployeeAddressInfo {
+	private int aid;
+	private String Addresstype;
+	private String city;
+	
+	public EmployeeAddressInfo() {
+		System.out.println("Default");
+	}
+	
+	public EmployeeAddressInfo(int aid, String Addresstype, String city) {
+		this.aid=aid;
+		this.Addresstype = Addresstype;
+		this.city=city;
+		
+	}
+	public void address() {
+		System.out.println("aid-----" + aid + " Addresstype-----" + Addresstype +  " city------" + city);
+	}
+
+	public int getAid() {
+		return aid;
+	}
+
+	public void setAid(int aid) {
+		this.aid = aid;
+	}
+
+	public String getAddresstype() {
+		return Addresstype;
+	}
+
+	public void setAddresstype(String addresstype) {
+		Addresstype = addresstype;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+}

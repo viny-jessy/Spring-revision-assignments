@@ -1,0 +1,19 @@
+package com.capgemini.springbean;
+
+import lombok.Data;
+
+@Data
+public class MessageBean {
+	
+	private String message;
+	private UserBean userBean;
+	
+	public MessageBean(String message, UserBean userBean) {
+		super();
+		this.message = message;
+		this.userBean = userBean;
+	}
+	
+	
+
+}

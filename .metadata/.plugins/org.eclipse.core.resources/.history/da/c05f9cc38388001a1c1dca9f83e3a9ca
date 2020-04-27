@@ -1,0 +1,50 @@
+package com.capgemini.springbean;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
+public class Pet {
+
+	@Autowired
+	@Qualifier("getLion")
+	private Animal animal;
+	private String name;
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setAnimal(Animal animal) {
+		this.animal = animal;
+	}
+
+	public Pet() {
+		System.out.println("This is a default constructor");
+
+	}
+
+	public Pet(String name) {
+
+		this.name = name;
+
+
+	}
+	public Pet(Animal animal) {
+
+		this.animal = animal;
+	}
+
+
+	public Pet(String name, Animal animal) {
+
+		this.name = name;
+		this.animal = animal;
+	}
+
+	public void dosomething() {
+		animal.sound();
+
+		System.out.println("name of the animal is:" + name);
+	}
+
+}

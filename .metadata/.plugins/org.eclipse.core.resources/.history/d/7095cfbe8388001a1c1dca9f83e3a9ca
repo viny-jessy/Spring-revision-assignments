@@ -1,0 +1,12 @@
+package com.capgemini.springbean;
+
+public class Lion implements Animal{
+	
+
+	@Override
+	public void sound() {
+		System.out.println("lion roars");
+		
+	}
+
+}

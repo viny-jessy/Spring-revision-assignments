@@ -1,0 +1,27 @@
+package com.capgemini.springcore1;
+
+
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import com.capgemini.springbean.Hello;
+
+
+
+public class Test {
+	public static void main(String[] args) {
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+		//EmployeePrimaryInfo info = context.getBean(EmployeePrimaryInfo.class);
+		
+		Hello info=context.getBean(Hello.class);
+		info.print();
+		
+		Hello info1=context.getBean(Hello.class);
+		info1.print();
+		
+	    System.out.println(info==info1);
+	    
+	    context.close();
+	}
+	 
+
+}
+ 

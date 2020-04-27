@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd 
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    
+	<bean id="msg" class="com.capgemini.springbean.MessageBean" scope="prototype" autowire="byType">
+	
+	<property name="message" value="Welcome to spring"></property>
+<!--<property name="userBean" ref="user1"></property>-->
+	</bean>
+
+<bean id="userBean" class="com.capgemini.springbean.UserBean" primary="true">
+	
+	<property name="userId" value="101"></property>
+	<property name="userName" value="vinitha"></property>
+	</bean>
+	
+	<bean id="userBean2" class="com.capgemini.springbean.UserBean">
+	
+	<property name="userId" value="102"></property>
+	<property name="userName" value="nithin"></property>
+	</bean>
+
+</beans>

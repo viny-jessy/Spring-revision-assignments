@@ -1,0 +1,6 @@
+package com.capgemini.springcore.bean;
+
+public class MessageBean {
+	
+private String message;
+}
